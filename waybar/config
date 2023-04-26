@@ -1,0 +1,103 @@
+{
+    "layer": "top",
+    "output": 0,
+    "position": "left",
+    "spacing": 2,
+    "height": 1040,
+    "width": 40,
+    "margin-left": 20,
+    "mode": "dock",
+    "ipc": false,
+    "modules-left": ["custom/logo"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right":["bluetooth", "wireplumber", "network", "clock"],
+    "exclusive": true,
+    "fixed-center": true,
+    "passthrough": false,
+
+    "bluetooth": {
+        "format": "{status}",
+        "format-connected": "",
+        "format-disabled": "",
+        "format-off": "",
+        "format-on": "",
+        "on-click": "bluetooth toggle",
+        "tooltip": true,
+        "tooltip-format": "{status}",
+        "tooltip-format-connected": "{device_alias}" 
+    },
+    
+    "network": {
+        "interface": "wlp3s0",
+        "interval": 10,
+        "format": "{icon}",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "on-click": "sh ~/.config/waybar/script/wifi",
+        "tooltip": true,
+        "tooltip-format": "Connected to {essid}"
+    },
+
+    "battery": {
+        "bat": "BAT2",
+        "interval": 60,
+        "full-at": 96,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-icons": ["","","","","","","","","","",""]
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "format-icons": ["", "", ""],
+        "states": {
+            "high": 60,
+            "medium": 30,
+            "low": 0
+        },
+        "tooltip": true,
+        "tooltip-format": "{volume}%"
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": false,
+        "sort-by-name": false,
+        "sort-by-coordinates": false,
+        "sort-by-number": true,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "ニ",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        }
+    },
+
+    "clock": {
+        "interval": 5,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "format": "{:%H\n%M}",
+        "on-click": "sh ~/.config/waybar/script/calendar"
+    },
+    "custom/logo": {
+        "format": "{icon}",
+        "format-icons": ""
+    }
+}
+
+    

@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ $(eww get toggleCalendar) == true ]
+then
+    $(eww close calendar && eww update toggleCalendar=false)
+else
+    $(eww open calendar && eww update toggleCalendar=true)
+fi
